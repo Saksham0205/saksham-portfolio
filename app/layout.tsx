@@ -11,24 +11,10 @@ export const metadata: Metadata = {
   title: "Saksham - Full-Stack Developer & Founder",
   description:
     "Portfolio of Saksham - SDE Intern at Spyne and Founder of Ajnabee. Building scalable products with Next.js, Flutter, and modern cloud technologies.",
-  generator: "v0.app",
   icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
-    apple: "/apple-icon.png",
+    icon: "/favicon.ico",
   },
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
