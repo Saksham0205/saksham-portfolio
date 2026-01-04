@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card"
 import { ExternalLink } from "lucide-react"
+import Image from "next/image"
 
 interface CertificationsProps {
   addToRefs: (el: HTMLElement | null) => void
@@ -53,14 +54,14 @@ export function Certifications({ addToRefs }: CertificationsProps) {
       title: "Software Engineering Job Simulation",
       organizer: "Forage - NY Jobs CEO Council",
       date: "Aug 2023",
-      logo: { bg: "gradient-to-br from-blue-400 to-cyan-400", text: "F" },
+      logo: { image: "/logos/theforage_logo.jpg" },
       link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/New%20York%20Jobs%20CEO%20Council/7GYaMYxc6zEcbpjYL_New%20York%20Jobs%20CEO%20Council_FwPf2gJfAKBBviuhC_1693485333805_completion_certificate.pdf",
     },
     {
       title: "Mastercard Cybersecurity Virtual Experience",
       organizer: "Forage",
       date: "Apr 2022",
-      logo: { bg: "gradient-to-br from-red-600 to-orange-500", text: "MC" },
+      logo: { image: "/logos/theforage_logo.jpg" },
       link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/mastercard/vcKAB5yYAgvemepGQ_Mastercard_FwPf2gJfAKBBviuhC_1649418681499_completion_certificate.pdf",
     },
   ]
@@ -79,12 +80,24 @@ export function Certifications({ addToRefs }: CertificationsProps) {
                 className="block"
               >
                 <div className="flex items-start gap-4 mb-3">
-                  <div
-                    className={`w-12 h-12 shrink-0 rounded-lg ${cert.logo.bg.startsWith("#") ? "" : "bg-"}${cert.logo.bg} flex items-center justify-center`}
-                    style={cert.logo.bg.startsWith("#") ? { backgroundColor: cert.logo.bg } : {}}
-                  >
-                    <span className="text-white font-bold text-xs">{cert.logo.text}</span>
-                  </div>
+                  {cert.logo.image ? (
+                    <div className="w-12 h-12 shrink-0 rounded-lg bg-white border border-border flex items-center justify-center p-2">
+                      <Image
+                        src={cert.logo.image}
+                        alt={`${cert.organizer} logo`}
+                        width={48}
+                        height={48}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className={`w-12 h-12 shrink-0 rounded-lg ${cert.logo.bg?.startsWith("#") ? "" : "bg-"}${cert.logo.bg} flex items-center justify-center`}
+                      style={cert.logo.bg?.startsWith("#") ? { backgroundColor: cert.logo.bg } : {}}
+                    >
+                      <span className="text-white font-bold text-xs">{cert.logo.text}</span>
+                    </div>
+                  )}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-2">
                       <h3 className="font-semibold text-sm sm:text-base mb-1 group-hover:text-primary transition-colors">
