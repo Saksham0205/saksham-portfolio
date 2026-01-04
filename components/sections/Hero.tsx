@@ -8,7 +8,7 @@ interface HeroProps {
 
 export function Hero({ heroRef }: HeroProps) {
   return (
-    <section ref={heroRef} className="min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6">
+    <section ref={heroRef} className="min-h-[calc(100vh-5rem)] sm:min-h-screen flex items-start sm:items-center justify-center pt-24 sm:pt-20 pb-12 sm:pb-0 px-4 sm:px-6">
       <div className="container mx-auto max-w-6xl">
         <div className="space-y-4 sm:space-y-6 animate-fade-in">
           <div className="text-xs sm:text-sm text-muted-foreground uppercase tracking-wider">
@@ -25,6 +25,11 @@ export function Hero({ heroRef }: HeroProps) {
             </Button>
             <Button asChild variant="outline" size="lg" className="w-full sm:w-auto bg-transparent">
               <a href="#projects">View Projects</a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto bg-transparent">
+              <a href="https://drive.google.com/uc?export=download&id=1slFnUEndYVCriaJVmjWS40xyD-l8JDLB" target="_blank" rel="noopener noreferrer">
+                Download Resume
+              </a>
             </Button>
           </div>
           <div className="flex gap-4 sm:gap-6 pt-2">
