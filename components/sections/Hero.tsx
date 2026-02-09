@@ -11,12 +11,9 @@ export function Hero({ heroRef }: HeroProps) {
     <section ref={heroRef} className="min-h-[calc(100vh-5rem)] sm:min-h-screen flex items-start sm:items-center justify-center pt-24 sm:pt-20 pb-12 sm:pb-0 px-4 sm:px-6">
       <div className="container mx-auto max-w-6xl">
         <div className="space-y-4 sm:space-y-6 animate-fade-in">
-          <div className="text-xs sm:text-sm text-muted-foreground uppercase tracking-wider">
-            Full-Stack Developer
-          </div>
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight">Saksham</h1>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
-            SDE Intern at Spyne and Founder of Ajnabee. Building scalable products with Next.js, Flutter, and modern
+            PM + SDE Intern at Spyne and Founder of Ajnabee. Building scalable products with Next.js, Flutter, and modern
             cloud technologies.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
