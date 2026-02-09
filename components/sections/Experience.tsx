@@ -16,7 +16,7 @@ export function Experience({ addToRefs }: ExperienceProps) {
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-4 mb-4">
               <div>
                 <h3 className="text-xl sm:text-2xl font-semibold group-hover:text-primary transition-colors">
-                  SDE Intern
+                  PM + SDE Intern
                 </h3>
                 <div className="flex items-center gap-2">
                   <p className="text-lg sm:text-xl text-muted-foreground">Spyne</p>
