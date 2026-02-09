@@ -24,7 +24,7 @@ export function Hero({ heroRef }: HeroProps) {
               <a href="#projects">View Projects</a>
             </Button>
             <Button asChild variant="outline" size="lg" className="w-full sm:w-auto bg-transparent">
-              <a href="https://drive.google.com/uc?export=download&id=1slFnUEndYVCriaJVmjWS40xyD-l8JDLB" target="_blank" rel="noopener noreferrer">
+              <a href="https://drive.google.com/uc?export=download&id=1zQ2jrKd1gz7zX2zh69-0QpoVnOViEoXC" target="_blank" rel="noopener noreferrer">
                 Download Resume
               </a>
             </Button>
