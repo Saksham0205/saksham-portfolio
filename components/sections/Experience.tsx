@@ -32,7 +32,7 @@ export function Experience({ addToRefs }: ExperienceProps) {
                 </div>
               </div>
               <div className="sm:text-right">
-                <span className="text-sm text-muted-foreground">May 2025 – Present</span>
+                <span className="text-sm text-muted-foreground">May 2025 – Jan 2026</span>
                 <p className="text-sm text-muted-foreground">Gurgaon, India</p>
               </div>
             </div>
