@@ -1,7 +1,10 @@
-import { RefObject } from "react"
+"use client"
+
+import { RefObject, useState, useEffect } from "react"
 import { Github, Linkedin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import dynamic from "next/dynamic"
 import flutterLogo from "@/components/logos/flutter.jpg"
 import mongodbLogo from "@/components/logos/mongodb-logo.png"
 import nestjsLogo from "@/components/logos/nest js.jpg"
@@ -9,6 +12,11 @@ import firebaseLogo from "@/components/logos/firebase-logo.png"
 import githubLogo from "@/components/logos/GitHub-Symbol.png"
 import v0Logo from "@/components/logos/v0-logo.png"
 import reddyAiLogo from "@/components/logos/readdy-ai-logo.jpg"
+
+const HeroCanvas = dynamic(
+  () => import("@/components/3d/HeroScene").then((mod) => ({ default: mod.HeroCanvas })),
+  { ssr: false }
+)
 
 interface HeroProps {
   heroRef: RefObject<HTMLDivElement | null>
@@ -24,26 +32,55 @@ const techStack = [
   { name: "Readdy AI", logo: reddyAiLogo, delay: "3s", needsWhiteBg: false },
 ]
 
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener("resize", check)
+    return () => window.removeEventListener("resize", check)
+  }, [])
+  return isMobile
+}
+
 export function Hero({ heroRef }: HeroProps) {
+  const isMobile = useIsMobile()
+
   return (
-    <section ref={heroRef} className="min-h-[calc(100vh-5rem)] sm:min-h-screen flex items-start sm:items-center justify-center pt-24 sm:pt-20 pb-12 sm:pb-0 px-4 sm:px-6 overflow-hidden">
-      <div className="container mx-auto max-w-6xl">
+    <section
+      ref={heroRef}
+      className="relative min-h-[calc(100vh-5rem)] sm:min-h-screen flex items-start sm:items-center justify-center pt-24 sm:pt-20 pb-12 sm:pb-0 px-4 sm:px-6 overflow-hidden"
+    >
+      {/* 3D Background - floating shapes & particles on desktop */}
+      {!isMobile && <HeroCanvas />}
+
+      {/* Mobile gradient fallback */}
+      {isMobile && (
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#0a1a2e] to-[#0a0a0a]" />
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-[#00f5ff]/5 rounded-full blur-[100px]" />
+        </div>
+      )}
+
+      <div className="container mx-auto max-w-6xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left side - Content */}
           <div className="space-y-4 sm:space-y-6 animate-fade-in">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight">Saksham</h1>
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-glow" style={{ color: "#00f5ff" }}>
+              Saksham
+            </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
-              PM + SDE Intern at Spyne and Founder of Ajnabee. Building scalable products with Next.js, Flutter, and modern
+              SDE Intern at Spyne and Founder of Ajnabee. Building scalable products with Next.js, Flutter, and modern
               cloud technologies.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
-              <Button asChild size="lg" className="w-full sm:w-auto">
+              <Button asChild size="lg" className="w-full sm:w-auto bg-[#00f5ff] text-[#0a0a0a] hover:bg-[#00f5ff]/80 font-semibold">
                 <a href="#contact">Get in Touch</a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto bg-transparent">
+              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto bg-transparent border-[#00f5ff]/30 text-[#00f5ff] hover:bg-[#00f5ff]/10 hover:border-[#00f5ff]/60">
                 <a href="#projects">View Projects</a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto bg-transparent">
+              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto bg-transparent border-[#00f5ff]/30 text-[#00f5ff] hover:bg-[#00f5ff]/10 hover:border-[#00f5ff]/60">
                 <a href="https://drive.google.com/uc?export=download&id=1A3f2wUDBBTSC0t_eCSbsU2Qrtxy2dfPN" target="_blank" rel="noopener noreferrer">
                   Download Resume
                 </a>
@@ -54,7 +91,7 @@ export function Hero({ heroRef }: HeroProps) {
                 href="https://github.com/Saksham0205"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-[#00f5ff] transition-colors"
               >
                 <Github className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
@@ -62,11 +99,11 @@ export function Hero({ heroRef }: HeroProps) {
                 href="https://linkedin.com/in/saksham-chauhan-252003"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-[#00f5ff] transition-colors"
               >
                 <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
-              <a href="mailto:saksham252003@gmail.com" className="hover:text-primary transition-colors">
+              <a href="mailto:saksham252003@gmail.com" className="text-muted-foreground hover:text-[#00f5ff] transition-colors">
                 <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
             </div>
@@ -80,7 +117,7 @@ export function Hero({ heroRef }: HeroProps) {
                 const radius = 140
                 const x = Math.cos(angle) * radius
                 const y = Math.sin(angle) * radius
-                
+
                 return (
                   <div
                     key={tech.name}
@@ -91,7 +128,7 @@ export function Hero({ heroRef }: HeroProps) {
                     }}
                   >
                     <div
-                      className="flex flex-col items-center gap-2 p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all hover:scale-110 cursor-default"
+                      className="flex flex-col items-center gap-2 p-4 rounded-xl bg-[#111111]/80 backdrop-blur-sm border border-[#1f1f1f] hover:border-[#00f5ff]/50 transition-all hover:scale-110 cursor-default glow-border"
                       style={{
                         transform: `translate(${x}px, ${y}px)`,
                       }}
@@ -105,14 +142,14 @@ export function Hero({ heroRef }: HeroProps) {
                           sizes="48px"
                         />
                       </div>
-                      <span className="text-xs font-medium whitespace-nowrap">{tech.name}</span>
+                      <span className="text-xs font-medium whitespace-nowrap text-[#e5e5e5]">{tech.name}</span>
                     </div>
                   </div>
                 )
               })}
-              
-              {/* Center circle */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-primary/10 border-2 border-primary/20 flex items-center justify-center">
+
+              {/* Center circle with glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-[#00f5ff]/10 border-2 border-[#00f5ff]/30 flex items-center justify-center animate-glow-pulse">
                 <span className="text-2xl">💻</span>
               </div>
             </div>
@@ -122,4 +159,3 @@ export function Hero({ heroRef }: HeroProps) {
     </section>
   )
 }
-

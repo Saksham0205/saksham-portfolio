@@ -12,6 +12,8 @@ import { Certifications } from "@/components/sections/Certifications"
 import { Leadership } from "@/components/sections/Leadership"
 import { Contact } from "@/components/sections/Contact"
 import { Footer } from "@/components/sections/Footer"
+import { SmoothScroll } from "@/components/SmoothScroll"
+import { NoiseOverlay } from "@/components/NoiseOverlay"
 
 export default function Portfolio() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -47,22 +49,25 @@ export default function Portfolio() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Navigation
-        mobileMenuOpen={mobileMenuOpen}
-        setMobileMenuOpen={setMobileMenuOpen}
-        handleMobileNavClick={handleMobileNavClick}
-      />
-      <Hero heroRef={heroRef} />
-      <About addToRefs={addToRefs} />
-      <Experience addToRefs={addToRefs} />
-      <Projects addToRefs={addToRefs} />
-      <Skills addToRefs={addToRefs} />
-      <Achievements addToRefs={addToRefs} />
-      <Certifications addToRefs={addToRefs} />
-      <Leadership addToRefs={addToRefs} />
-      <Contact addToRefs={addToRefs} />
-      <Footer />
-    </div>
+    <SmoothScroll>
+      <div className="min-h-screen bg-background text-foreground">
+        <NoiseOverlay />
+        <Navigation
+          mobileMenuOpen={mobileMenuOpen}
+          setMobileMenuOpen={setMobileMenuOpen}
+          handleMobileNavClick={handleMobileNavClick}
+        />
+        <Hero heroRef={heroRef} />
+        <About addToRefs={addToRefs} />
+        <Experience addToRefs={addToRefs} />
+        <Projects addToRefs={addToRefs} />
+        <Skills addToRefs={addToRefs} />
+        <Achievements addToRefs={addToRefs} />
+        <Certifications addToRefs={addToRefs} />
+        <Leadership addToRefs={addToRefs} />
+        <Contact addToRefs={addToRefs} />
+        <Footer />
+      </div>
+    </SmoothScroll>
   )
 }
