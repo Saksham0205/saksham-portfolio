@@ -14,13 +14,7 @@ function useRingtone() {
         audio.volume = 0.5
         audioRef.current = audio
       }
-      // .play() returns a promise — browsers allow it after user gesture
-      const playPromise = audioRef.current.play()
-      if (playPromise) {
-        playPromise.catch(() => {
-          // Autoplay blocked — we'll retry on next user interaction
-        })
-      }
+      audioRef.current.play().catch(() => {})
     } catch {
       // Audio not supported
     }
@@ -49,12 +43,22 @@ export function IncomingCall() {
   const [visibleMessages, setVisibleMessages] = useState<number>(0)
   const { playRing, stopRing } = useRingtone()
 
-  // Show call popup 3 seconds after page load
+  // Show call popup 2 seconds after the user's first interaction
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setPhase("ringing")
-    }, 3000)
-    return () => clearTimeout(timer)
+    let timer: ReturnType<typeof setTimeout>
+    const events = ["click", "touchstart", "pointerdown", "keydown"]
+
+    const onFirstInteraction = () => {
+      events.forEach((e) => document.removeEventListener(e, onFirstInteraction, true))
+      timer = setTimeout(() => setPhase("ringing"), 2000)
+    }
+
+    events.forEach((e) => document.addEventListener(e, onFirstInteraction, { capture: true, passive: true }))
+
+    return () => {
+      events.forEach((e) => document.removeEventListener(e, onFirstInteraction, true))
+      clearTimeout(timer)
+    }
   }, [])
 
   // Play ringtone when ringing
