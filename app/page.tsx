@@ -14,6 +14,7 @@ import { Contact } from "@/components/sections/Contact"
 import { Footer } from "@/components/sections/Footer"
 import { SmoothScroll } from "@/components/SmoothScroll"
 import { NoiseOverlay } from "@/components/NoiseOverlay"
+import { IncomingCall } from "@/components/IncomingCall"
 
 export default function Portfolio() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -49,10 +50,12 @@ export default function Portfolio() {
   }
 
   return (
-    <SmoothScroll>
-      <div className="min-h-screen bg-background text-foreground">
-        <NoiseOverlay />
-        <Navigation
+    <>
+      <NoiseOverlay />
+      <IncomingCall />
+      <SmoothScroll>
+        <div className="min-h-screen bg-background text-foreground">
+          <Navigation
           mobileMenuOpen={mobileMenuOpen}
           setMobileMenuOpen={setMobileMenuOpen}
           handleMobileNavClick={handleMobileNavClick}
@@ -66,8 +69,9 @@ export default function Portfolio() {
         <Certifications addToRefs={addToRefs} />
         <Leadership addToRefs={addToRefs} />
         <Contact addToRefs={addToRefs} />
-        <Footer />
-      </div>
-    </SmoothScroll>
+          <Footer />
+        </div>
+      </SmoothScroll>
+    </>
   )
 }

@@ -32,35 +32,33 @@ const techStack = [
   { name: "Readdy AI", logo: reddyAiLogo, delay: "3s", needsWhiteBg: false },
 ]
 
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false)
+function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = useState(false)
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768)
+    const check = () => setIsDesktop(window.innerWidth >= 768)
     check()
     window.addEventListener("resize", check)
     return () => window.removeEventListener("resize", check)
   }, [])
-  return isMobile
+  return isDesktop
 }
 
 export function Hero({ heroRef }: HeroProps) {
-  const isMobile = useIsMobile()
+  const isDesktop = useIsDesktop()
 
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[calc(100vh-5rem)] sm:min-h-screen flex items-start sm:items-center justify-center pt-24 sm:pt-20 pb-12 sm:pb-0 px-4 sm:px-6 overflow-hidden"
+      className="relative sm:min-h-screen sm:flex sm:items-center sm:justify-center pt-20 pb-8 sm:pb-0 px-4 sm:px-6 overflow-hidden"
     >
-      {/* 3D Background - floating shapes & particles on desktop */}
-      {!isMobile && <HeroCanvas />}
+      {/* 3D Background - only loads on desktop (defaults false so never loads on mobile/SSR) */}
+      {isDesktop && <HeroCanvas />}
 
-      {/* Mobile gradient fallback */}
-      {isMobile && (
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#0a1a2e] to-[#0a0a0a]" />
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-[#00f5ff]/5 rounded-full blur-[100px]" />
-        </div>
-      )}
+      {/* Mobile gradient fallback - pure CSS, always present, hidden on desktop */}
+      <div className="absolute inset-0 -z-10 sm:hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#0a1a2e] to-[#0a0a0a]" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-[#00f5ff]/5 rounded-full blur-[100px]" />
+      </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
