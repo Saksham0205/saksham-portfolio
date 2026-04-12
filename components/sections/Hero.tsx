@@ -12,6 +12,7 @@ import firebaseLogo from "@/components/logos/firebase-logo.png"
 import githubLogo from "@/components/logos/GitHub-Symbol.png"
 import v0Logo from "@/components/logos/v0-logo.png"
 import reddyAiLogo from "@/components/logos/readdy-ai-logo.jpg"
+import pythonLogo from "@/components/logos/python-logo.png"
 
 const HeroCanvas = dynamic(
   () => import("@/components/3d/HeroScene").then((mod) => ({ default: mod.HeroCanvas })),
@@ -30,6 +31,7 @@ const techStack = [
   { name: "GitHub", logo: githubLogo, delay: "2s", needsWhiteBg: true },
   { name: "V0", logo: v0Logo, delay: "2.5s", needsWhiteBg: false },
   { name: "Readdy AI", logo: reddyAiLogo, delay: "3s", needsWhiteBg: false },
+  { name: "Python", logo: pythonLogo, delay: "3.5s", needsWhiteBg: true },
 ]
 
 function useIsDesktop() {
@@ -108,11 +110,11 @@ export function Hero({ heroRef }: HeroProps) {
           </div>
 
           {/* Right side - Floating Tech Stack */}
-          <div className="hidden lg:flex relative h-[400px] items-center justify-center">
+          <div className="hidden lg:flex relative h-[500px] items-center justify-center">
             <div className="relative w-full h-full">
               {techStack.map((tech, index) => {
                 const angle = (index / techStack.length) * 2 * Math.PI
-                const radius = 140
+                const radius = 175
                 const x = Math.cos(angle) * radius
                 const y = Math.sin(angle) * radius
 

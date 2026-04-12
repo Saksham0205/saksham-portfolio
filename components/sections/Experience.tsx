@@ -36,18 +36,11 @@ export function Experience({ addToRefs }: ExperienceProps) {
                 <p className="text-sm text-muted-foreground">Gurgaon, India</p>
               </div>
             </div>
-            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-muted-foreground">
+            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-muted-foreground mb-4">
               <li className="flex gap-2 sm:gap-3">
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 mt-1 text-primary" />
                 <span>
                   Delivered 5+ production-grade products within six months, accelerating cross-team delivery cycles.
-                </span>
-              </li>
-              <li className="flex gap-2 sm:gap-3">
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 mt-1 text-primary" />
-                <span>
-                  Architected a multi-channel outbound communication engine enabling automated, AI-driven voice
-                  workflows.
                 </span>
               </li>
               <li className="flex gap-2 sm:gap-3">
@@ -58,7 +51,49 @@ export function Experience({ addToRefs }: ExperienceProps) {
                 </span>
               </li>
             </ul>
-            <div className="flex flex-wrap gap-2 mt-4">
+
+            {/* Featured Build: Conversational AI */}
+            <div className="border-l-2 border-primary/40 pl-3 sm:pl-4 mb-4 space-y-2">
+              <p className="text-[10px] sm:text-xs font-semibold text-primary uppercase tracking-widest">
+                Featured Build
+              </p>
+              <p className="text-sm sm:text-base font-semibold">Conversational AI for Car Dealers</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Virtual sales assistant handling after-hours inbound calls — understands customer intent, answers
+                inventory queries, and schedules appointments autonomously with a human-like voice.
+              </p>
+
+              {/* Pipeline */}
+              <div className="flex flex-wrap items-center gap-x-1 gap-y-1.5 pt-1">
+                {["Inbound Call", "Speech-to-Text", "LLM Intent", "Response Gen", "Text-to-Speech", "Action"].map(
+                  (step, i, arr) => (
+                    <div key={step} className="flex items-center gap-1">
+                      <span className="text-xs bg-muted rounded px-2 py-0.5 font-medium text-foreground/80 whitespace-nowrap">
+                        {step}
+                      </span>
+                      {i < arr.length - 1 && (
+                        <span className="text-muted-foreground/60 text-xs select-none">→</span>
+                      )}
+                    </div>
+                  )
+                )}
+              </div>
+
+              {/* Integrations */}
+              <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+                <span className="text-xs text-muted-foreground">via</span>
+                {["Vapi", "ElevenLabs"].map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs border border-primary/30 text-primary/80 rounded px-2 py-0.5"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
               <Badge variant="secondary" className="text-xs">
                 Next.js
               </Badge>
