@@ -81,7 +81,7 @@ export function Hero({ heroRef }: HeroProps) {
                 <a href="#projects">View Projects</a>
               </Button>
               <Button asChild variant="outline" size="lg" className="w-full sm:w-auto bg-transparent border-[#00f5ff]/30 text-[#00f5ff] hover:bg-[#00f5ff]/10 hover:border-[#00f5ff]/60">
-                <a href="https://drive.google.com/file/d/1Dzwnw-8Ro424AoNs7V61_ivQPw1-V887/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <a href="https://drive.google.com/uc?export=download&id=1Dzwnw-8Ro424AoNs7V61_ivQPw1-V887" download="Saksham_Resume.pdf">
                   Download Resume
                 </a>
               </Button>
