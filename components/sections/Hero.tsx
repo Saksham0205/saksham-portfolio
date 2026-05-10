@@ -70,7 +70,7 @@ export function Hero({ heroRef }: HeroProps) {
               Saksham
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
-              SDE Intern at Spyne and Founder of Ajnabee. Building scalable products with Next.js, Flutter, and modern
+              SDE Intern at Spyne and Founder of Ajnabee. Building scalable products with NestJS, Flutter and modern
               cloud technologies.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">

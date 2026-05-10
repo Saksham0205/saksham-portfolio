@@ -9,7 +9,7 @@ export function Skills({ addToRefs }: SkillsProps) {
     <section ref={addToRefs} className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 opacity-0">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12">Skills</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           <div>
             <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Languages</h3>
             <div className="flex flex-wrap gap-2">
@@ -22,7 +22,7 @@ export function Skills({ addToRefs }: SkillsProps) {
             </div>
           </div>
           <div>
-            <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Backend</h3>
+            <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Backend & Databases</h3>
             <div className="flex flex-wrap gap-2">
               <Badge className="text-xs">REST APIs</Badge>
               <Badge className="text-xs">Firebase</Badge>
@@ -30,6 +30,8 @@ export function Skills({ addToRefs }: SkillsProps) {
               <Badge className="text-xs">SQL</Badge>
               <Badge className="text-xs">Docker</Badge>
               <Badge className="text-xs">Postman</Badge>
+              <Badge className="text-xs">Redis</Badge>
+              <Badge className="text-xs">ClickHouse</Badge>
             </div>
           </div>
           <div>
@@ -40,6 +42,15 @@ export function Skills({ addToRefs }: SkillsProps) {
               <Badge className="text-xs">Nest.js</Badge>
               <Badge className="text-xs">Next.js</Badge>
               <Badge className="text-xs">Bloc/Provider</Badge>
+            </div>
+          </div>
+          <div>
+            <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">AI Integration</h3>
+            <div className="flex flex-wrap gap-2">
+              <Badge className="text-xs">Generative AI</Badge>
+              <Badge className="text-xs">LLMs</Badge>
+              <Badge className="text-xs">LLMs Integration</Badge>
+              <Badge className="text-xs">Prompt Engineering</Badge>
             </div>
           </div>
           <div>
