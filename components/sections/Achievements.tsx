@@ -16,12 +16,12 @@ export function Achievements({ addToRefs }: AchievementsProps) {
               Selected as one of Delhi's top young innovators under 25. Won <span className="font-medium text-foreground">Best Startup Idea</span> at age 20 for building Ajnabee — a scalable women-first salon booking ecosystem targeting 3.3M+ users across Delhi-NCR.
             </p>
           </Card>
-          <Card className="p-4 sm:p-6 hover:shadow-lg transition-shadow">
+          {/* <Card className="p-4 sm:p-6 hover:shadow-lg transition-shadow">
             <h3 className="font-semibold text-base sm:text-lg mb-2">Tech.Future Hackathon Finalist</h3>
             <p className="text-sm sm:text-base text-muted-foreground">
               Ranked in the <span className="font-medium text-foreground">Top 25 out of 500+ teams</span> at IIT Delhi's Tech.Future Hackathon — one of the most competitive student-led innovation challenges in the country.
             </p>
-          </Card>
+          </Card> */}
           <Card className="p-4 sm:p-6 hover:shadow-lg transition-shadow">
   <h3 className="font-semibold text-base sm:text-lg mb-2">Pitch Your Idea Summit Winner</h3>
   <p className="text-sm sm:text-base text-muted-foreground">
