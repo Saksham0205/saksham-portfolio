@@ -12,6 +12,110 @@ export function Experience({ addToRefs }: ExperienceProps) {
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12">Experience</h2>
         <div className="space-y-6 sm:space-y-8">
+
+          {/* OmniDimension */}
+          <Card className="p-4 sm:p-6 lg:p-8 hover:shadow-lg transition-shadow group">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-4 mb-4">
+              <div>
+                <h3 className="text-xl sm:text-2xl font-semibold group-hover:text-primary transition-colors">
+                  Product Engineer – Voice AI Agents
+                </h3>
+                <div className="flex items-center gap-2">
+                  <p className="text-lg sm:text-xl text-muted-foreground">OmniDimension</p>
+                  <a
+                    href="https://omnidim.io"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary/80 transition-colors"
+                    aria-label="Visit OmniDimension website"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+              <div className="sm:text-right">
+                <span className="text-sm text-muted-foreground">May 2026 – Present</span>
+                <p className="text-sm text-muted-foreground">Remote – US</p>
+              </div>
+            </div>
+            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-muted-foreground mb-4">
+              <li className="flex gap-2 sm:gap-3">
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 mt-1 text-primary" />
+                <span>
+                  Collaborated directly with customers and internal teams to scope agent requirements, design advanced
+                  workflows and deliver new capabilities.
+                </span>
+              </li>
+              <li className="flex gap-2 sm:gap-3">
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 mt-1 text-primary" />
+                <span>
+                  <span className="font-medium text-foreground">Technologies:</span> Voice AI / Conversational Agents,
+                  LLMs, Prompt Engineering, Python, REST APIs, Analytics pipelines
+                </span>
+              </li>
+            </ul>
+            <div className="flex flex-wrap gap-2">
+              {["Voice AI", "LLMs", "Prompt Engineering", "Python", "REST APIs"].map((tag) => (
+                <Badge key={tag} variant="secondary" className="text-xs">
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+          </Card>
+
+          {/* Aftershoot */}
+          <Card className="p-4 sm:p-6 lg:p-8 hover:shadow-lg transition-shadow group">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-4 mb-4">
+              <div>
+                <h3 className="text-xl sm:text-2xl font-semibold group-hover:text-primary transition-colors">
+                  AI Product Manager Intern
+                </h3>
+                <div className="flex items-center gap-2">
+                  <p className="text-lg sm:text-xl text-muted-foreground">Aftershoot</p>
+                  <a
+                    href="https://aftershoot.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary/80 transition-colors"
+                    aria-label="Visit Aftershoot website"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+              <div className="sm:text-right">
+                <span className="text-sm text-muted-foreground">Feb 2026 – Apr 2026</span>
+                <p className="text-sm text-muted-foreground">New Delhi, India</p>
+              </div>
+            </div>
+            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-muted-foreground mb-4">
+              <li className="flex gap-2 sm:gap-3">
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 mt-1 text-primary" />
+                <span>
+                  Shipped a high-impact image compression feature solo: self-defined aggressive targets (under 12 MB
+                  from 200 MB+ RAW files), wrote the full product spec, partnered with Engineering to scope and deliver
+                  — significantly reducing export friction and improving experience for power users.
+                </span>
+              </li>
+              <li className="flex gap-2 sm:gap-3">
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 mt-1 text-primary" />
+                <span>
+                  Built <strong className="text-foreground">5+ internal analytics dashboards</strong> tracking user activity, feature adoption, and
+                  retention signals, directly enabling data-driven sprint prioritization and cross-team alignment on
+                  the most impactful AI product initiatives and owned user research end-to-end.
+                </span>
+              </li>
+            </ul>
+            <div className="flex flex-wrap gap-2">
+              {["Product Management", "User Research", "Analytics", "AI/ML Products", "Roadmapping"].map((tag) => (
+                <Badge key={tag} variant="secondary" className="text-xs">
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+          </Card>
+
+          {/* Spyne */}
           <Card className="p-4 sm:p-6 lg:p-8 hover:shadow-lg transition-shadow group">
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-4 mb-4">
               <div>
