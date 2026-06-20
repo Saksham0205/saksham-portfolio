@@ -64,7 +64,7 @@ export function Experience({ addToRefs }: ExperienceProps) {
           </Card>
 
           {/* Aftershoot */}
-          <Card className="p-4 sm:p-6 lg:p-8 hover:shadow-lg transition-shadow group">
+          {/* <Card className="p-4 sm:p-6 lg:p-8 hover:shadow-lg transition-shadow group">
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-4 mb-4">
               <div>
                 <h3 className="text-xl sm:text-2xl font-semibold group-hover:text-primary transition-colors">
@@ -113,7 +113,7 @@ export function Experience({ addToRefs }: ExperienceProps) {
                 </Badge>
               ))}
             </div>
-          </Card>
+          </Card> */}
 
           {/* Spyne */}
           <Card className="p-4 sm:p-6 lg:p-8 hover:shadow-lg transition-shadow group">
