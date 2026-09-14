@@ -25,9 +25,9 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "Saksham Chauhan — Product Engineer & Founder",
+  title: "Saksham Chauhan — Software Engineer & Founder",
   description:
-    "Product Engineer at OmniDimension, ex-Spyne, Founder of Ajnabee. Building voice AI agents, LLM workflows, and shipped full-stack products.",
+    "Software Engineer at OmniDimension, ex-Spyne, Founder of Ajnabee. Building voice AI agents, LLM workflows, and shipped full-stack products.",
   icons: {
     icon: "/favicon.ico",
   },

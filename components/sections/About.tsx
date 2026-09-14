@@ -26,7 +26,7 @@ export function About({ addToRefs }: AboutProps) {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-base leading-relaxed text-foreground/75 font-sans">
-                Currently Product Engineer at OmniDimension building conversational AI & voice agents. Previously at Spyne as an SDE Intern, where I architected AI campaign engines and shipped 5+ production products and 10+ dashboards.
+                Currently Software Engineer at OmniDimension building conversational AI & voice agents. Previously at Spyne as an SDE Intern, where I architected AI campaign engines and shipped 5+ production products and 10+ dashboards.
               </p>
             </Reveal>
             <Reveal delay={0.2}>

@@ -11,16 +11,16 @@ const experienceData = [
   {
     company: "OmniDimension",
     url: "https://omnidim.io",
-    role: "Product Engineer — Voice AI Agents",
+    role: "Software Engineer",
     period: "May 2026 — Present",
     year: "2026",
     place: "Remote · US",
     points: [
-      "Work directly with customers and internal teams to scope agent requirements, design advanced workflows, and deliver new capabilities.",
-      "Own the loop from conversation design to analytics — prompt systems, tool calling, and evaluation of live agent behaviour.",
-      "Architect and refine high-reliability conversational voice agents and multi-channel LLM workflows.",
+      "Implement advanced conversational agent workflows in Python, translating scoped requirements into multi-step agent logic, LLM prompt chains, and REST API integrations shipped as production capabilities.",
+      "Researched and benchmarked TTS and STT models and providers — comparing latency, transcription accuracy, and voice quality to inform the speech stack powering production voice agents.",
+      "Designed and built an internal invoice management tool end-to-end — data model, service layer, and REST endpoints — automating billing workflows and eliminating manual processing across customer accounts.",
     ],
-    tech: ["Voice AI", "LLMs", "Prompt Engineering", "Python", "REST APIs", "Analytics pipelines"],
+    tech: ["Python", "LLM APIs", "TTS/STT", "Prompt Engineering", "REST APIs", "Analytics Pipelines", "Voice Agents"],
   },
   {
     company: "Spyne",

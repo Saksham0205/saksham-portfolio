@@ -43,7 +43,7 @@ export function Hero({ heroRef }: HeroProps) {
             <dl className="space-y-4 font-mono text-xs">
               <div className="flex justify-between border-b border-border pb-2">
                 <dt className="text-muted-foreground">Role</dt>
-                <dd className="text-right font-medium">Product Engineer</dd>
+                <dd className="text-right font-medium">Software Engineer</dd>
               </div>
               <div className="flex justify-between border-b border-border pb-2">
                 <dt className="text-muted-foreground">Focus</dt>
@@ -73,7 +73,7 @@ export function Hero({ heroRef }: HeroProps) {
             Get in touch
           </a>
           <a
-            href="https://drive.google.com/uc?export=download&id=1lwalw48e_vPbcIYh1iGyvzrhXJyFaxri"
+            href="https://drive.google.com/uc?export=download&id=1WTWIRiNM0WeQpy3h3WjtxUNKvFXPi1hJ"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 border border-border px-6 py-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors duration-300 hover:border-primary hover:text-primary"
