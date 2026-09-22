@@ -12,11 +12,11 @@ const experienceData = [
     company: "OmniDimension",
     url: "https://omnidim.io",
     role: "Software Engineer",
-    period: "May 2026 — Present",
+    period: "May 2026 — Sep 2026",
     year: "2026",
     place: "Remote · US",
     points: [
-      "Implement advanced conversational agent workflows in Python, translating scoped requirements into multi-step agent logic, LLM prompt chains, and REST API integrations shipped as production capabilities.",
+      "Implement advanced conversational agent workflows, translating scoped requirements into multi-step agent logic, LLM prompt chains, and REST API integrations shipped as production capabilities.",
       "Researched and benchmarked TTS and STT models and providers — comparing latency, transcription accuracy, and voice quality to inform the speech stack powering production voice agents.",
       "Designed and built an internal invoice management tool end-to-end — data model, service layer, and REST endpoints — automating billing workflows and eliminating manual processing across customer accounts.",
     ],
