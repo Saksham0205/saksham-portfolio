@@ -16,9 +16,9 @@ const experienceData = [
     year: "2026",
     place: "Remote · US",
     points: [
-      "Implement advanced conversational agent workflows, translating scoped requirements into multi-step agent logic, LLM prompt chains, and REST API integrations shipped as production capabilities.",
-      "Researched and benchmarked TTS and STT models and providers — comparing latency, transcription accuracy, and voice quality to inform the speech stack powering production voice agents.",
-      "Designed and built an internal invoice management tool end-to-end — data model, service layer, and REST endpoints — automating billing workflows and eliminating manual processing across customer accounts.",
+      "Built conversational AI workflows from requirements to production, integrating LLM APIs, prompt logic and REST API integrations.",
+      "Evaluated TTS and STT providers based on latency, transcription accuracy and voice quality for production voice agents.",
+      "Designed and built an internal invoice management tool end-to-end, including the data model, service layer and REST endpoints, automating billing workflows across customer accounts.",
     ],
     tech: ["Python", "LLM APIs", "TTS/STT", "Prompt Engineering", "REST APIs", "Analytics Pipelines", "Voice Agents"],
   },
