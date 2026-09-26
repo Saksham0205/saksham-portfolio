@@ -1,57 +1,67 @@
 "use client";
 
-import { Reveal } from "@/components/Reveal";
+import { useEffect, useRef } from "react";
+import { profile } from "@/data/profile";
+import { RoomTitle } from "@/components/ui-lab/RoomTitle";
 
-interface AboutProps {
-  addToRefs?: (el: HTMLElement | null) => void;
+const ROOM = 6;
+export const LOOP_WORDS = ["Build", "Ship", "Learn", "Iterate"];
+
+/** Story told in fragments; each one brightens as it crosses the middle of the screen. */
+function Fragments() {
+  const list = useRef<HTMLOListElement>(null);
+  useEffect(() => {
+    const items = list.current?.querySelectorAll<HTMLElement>("li");
+    if (!items) return;
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => (e.target as HTMLElement).setAttribute("data-on", String(e.isIntersecting))),
+      { rootMargin: "-38% 0px -38% 0px" },
+    );
+    items.forEach((i) => io.observe(i));
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <ol ref={list} className="fragments mt-[18vh] grid gap-[16vh]">
+      {profile.story.map((line) => (
+        <li key={line} className="max-w-[26ch] text-[clamp(1.35rem,2.4vw,2.1rem)] font-medium leading-[1.2] tracking-[-0.01em]">
+          {line}
+        </li>
+      ))}
+    </ol>
+  );
 }
 
-export function About({ addToRefs }: AboutProps) {
+export function About() {
   return (
-    <section id="about" ref={addToRefs} className="px-6 py-28 md:px-12 md:py-36">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-14 flex items-baseline justify-between border-b border-border pb-4">
-          <h2 className="font-display text-3xl font-extrabold uppercase tracking-[-0.03em] md:text-5xl">
-            About Me
-          </h2>
-          <span className="label">01 / Profile</span>
-        </div>
+    <section id="about" className="room" aria-labelledby="about-title">
+      <div className="room-flow">
+        <div className="col">
+          <RoomTitle room={ROOM} id="about-title" lines={["About"]} className="!text-[clamp(1.2rem,2vw,1.6rem)] text-slate" />
+          <p className="display mt-4 text-[clamp(2.6rem,6.5vw,5.8rem)]">{profile.name}</p>
+          <p className="mt-5 text-lg">{profile.roles.join(", ")}</p>
 
-        <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-7 space-y-6">
-            <Reveal>
-              <p className="text-lg md:text-xl leading-relaxed text-foreground/90 font-sans">
-                I'm a B.Tech Computer Science student from Maharaja Agrasen Institute of Technology, passionate about building products that make a real difference.
-              </p>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <p className="text-base leading-relaxed text-foreground/75 font-sans">
-                Currently Software Engineer at OmniDimension building conversational AI & voice agents. Previously at Spyne as an SDE Intern, where I architected AI campaign engines and shipped 5+ production products and 10+ dashboards.
-              </p>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <p className="text-base leading-relaxed text-foreground/75 font-sans">
-                As the founder of Ajnabee, I built a women-first salon booking ecosystem targeting 3.3M+ users across Delhi-NCR, leading a 10-member engineering and operations team.
-              </p>
-            </Reveal>
-          </div>
+          {/* Lit in step with the runner on the loop in the scene */}
+          <ol id="loop-words" data-hot="0" className="loop-words mt-10 flex flex-wrap items-baseline gap-x-3 gap-y-1" aria-label="How I work">
+            {LOOP_WORDS.map((w, i) => (
+              <li key={w} className="flex items-baseline gap-3">
+                <span className="display text-[clamp(1.4rem,3vw,2.4rem)] transition-colors duration-500">{w}</span>
+                <span className="text-slate" aria-hidden="true">
+                  {i < LOOP_WORDS.length - 1 ? "→" : "↺"}
+                </span>
+              </li>
+            ))}
+          </ol>
 
-          <div className="md:col-span-5">
-            <Reveal delay={0.15}>
-              <div className="border border-border bg-surface/50 p-8 backdrop-blur-md">
-                <span className="label text-primary">Education</span>
-                <h3 className="mt-4 font-display text-2xl font-bold tracking-tight">
-                  Maharaja Agrasen Institute of Technology
-                </h3>
-                <p className="mt-2 text-foreground/80 text-sm">
-                  B.Tech in Computer Science and Engineering
-                </p>
-                <div className="mt-6 flex justify-between border-t border-border pt-4 font-mono text-xs text-muted-foreground">
-                  <span>2022 — 2026</span>
-                  <span>New Delhi, India</span>
-                </div>
-              </div>
-            </Reveal>
+          <Fragments />
+
+          <div className="mt-[18vh] border-t border-line pt-5">
+            <p className="meta">Education</p>
+            <p className="mt-2 text-lg font-semibold">{profile.education.school}</p>
+            <p className="text-bone/80">{profile.education.degree}</p>
+            <p className="meta mt-1">
+              {profile.education.period}, {profile.education.place}
+            </p>
           </div>
         </div>
       </div>

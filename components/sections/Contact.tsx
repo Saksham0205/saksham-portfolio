@@ -1,73 +1,56 @@
-"use client";
+import { profile } from "@/data/profile";
+import { RoomTitle } from "@/components/ui-lab/RoomTitle";
 
-import { Reveal } from "@/components/Reveal";
+const ROOM = 9;
 
-interface ContactProps {
-  addToRefs?: (el: HTMLElement | null) => void;
-}
+const channels = [
+  { label: "Email", value: profile.email, href: `mailto:${profile.email}`, external: false },
+  { label: "LinkedIn", value: "saksham-chauhan-252003", href: profile.links.linkedin, external: true },
+  { label: "GitHub", value: "Saksham0205", href: profile.links.github, external: true },
+  { label: "Resume", value: "Download PDF", href: profile.links.resume, external: true },
+  { label: "Phone", value: profile.phone, href: `tel:${profile.phone.replace(/-/g, "")}`, external: false },
+];
 
-export function Contact({ addToRefs }: ContactProps) {
+/** The way out: the camera pulls up and the whole lab comes into view. */
+export function Contact() {
   return (
-    <section id="contact" ref={addToRefs} className="px-6 py-28 md:px-12 md:py-40">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-14 flex items-baseline justify-between border-b border-border pb-4">
-          <h2 className="font-display text-3xl font-extrabold uppercase tracking-[-0.03em] md:text-5xl">
-            Get in touch
-          </h2>
-          <span className="label">08 / Contact</span>
+    <section id="contact" className="room" aria-labelledby="contact-title" style={{ ["--room-h" as string]: "180vh" }}>
+      <div className="room-pin !justify-between">
+        <div className="col !max-w-none">
+          <RoomTitle
+            room={ROOM}
+            id="contact-title"
+            lines={["Let's build", "something."]}
+            className="room-title--xl"
+          />
         </div>
 
-        <Reveal>
-          <h2 className="font-display text-[clamp(2.5rem,8vw,6.5rem)] font-extrabold uppercase leading-[0.88] tracking-[-0.04em]">
-            Let's build
-            <br />
-            <span className="text-primary">something loud.</span>
-          </h2>
-        </Reveal>
+        <div className="mt-12">
+          <ul className="grid max-w-5xl gap-x-10 border-t border-line sm:grid-cols-2 lg:grid-cols-3">
+            {channels.map((c) => (
+              <li key={c.label} className="border-b border-line">
+                <a
+                  href={c.href}
+                  {...(c.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="group flex items-baseline justify-between gap-4 py-4"
+                >
+                  <span className="text-slate">{c.label}</span>
+                  <span className="truncate transition-colors group-hover:text-signal">
+                    {c.value} {c.external && <span aria-hidden="true">↗</span>}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
 
-        <Reveal delay={0.15} className="mt-14 grid gap-10 sm:grid-cols-2 md:grid-cols-3">
-          <div>
-            <span className="label">Email</span>
-            <a
-              href="mailto:saksham252003@gmail.com"
-              className="mt-3 block font-mono text-sm text-foreground/90 hover:text-primary transition-colors"
-            >
-              saksham252003@gmail.com
-            </a>
-          </div>
-
-          <div>
-            <span className="label">Phone</span>
-            <a
-              href="tel:+918376063400"
-              className="mt-3 block font-mono text-sm text-foreground/90 hover:text-primary transition-colors"
-            >
-              +91-8376063400
-            </a>
-          </div>
-
-          <div>
-            <span className="label">Elsewhere</span>
-            <div className="mt-3 flex flex-col gap-2 font-mono text-sm text-foreground/90">
-              <a
-                href="https://linkedin.com/in/saksham-chauhan-252003"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                LinkedIn ↗
-              </a>
-              <a
-                href="https://github.com/Saksham0205"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                GitHub ↗
-              </a>
-            </div>
-          </div>
-        </Reveal>
+          <footer className="meta mt-10 flex flex-wrap justify-between gap-x-8 gap-y-2 text-xs">
+            <span>© {new Date().getFullYear()} {profile.name}</span>
+            <span>
+              {profile.location}, {profile.coordinates}
+            </span>
+            <span>Built as its own product: Next.js, React Three Fiber, custom shaders.</span>
+          </footer>
+        </div>
       </div>
     </section>
   );
