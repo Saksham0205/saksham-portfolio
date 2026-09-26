@@ -15,16 +15,6 @@ export function Hero({ heroRef }: HeroProps) {
       className="relative flex min-h-[100svh] flex-col justify-center px-6 pt-32 pb-20 md:px-12"
     >
       <div className="mx-auto w-full max-w-6xl">
-        {/* Status Badge */}
-        <div className="mb-10 flex items-center gap-3">
-          <span className="relative flex size-2">
-            <span className="absolute inset-0 animate-ping rounded-full bg-primary/70" />
-            <span className="size-2 rounded-full bg-primary" />
-          </span>
-          <span className="label">
-            Currently at OmniDimension - Remote (US)
-          </span>
-        </div>
 
         {/* Big Display Name */}
         <h1 className="font-display text-[clamp(2.75rem,9vw,7.5rem)] font-extrabold uppercase leading-[0.86] tracking-[-0.04em]">
@@ -73,7 +63,7 @@ export function Hero({ heroRef }: HeroProps) {
             Get in touch
           </a>
           <a
-            href="https://drive.google.com/uc?export=download&id=1WTWIRiNM0WeQpy3h3WjtxUNKvFXPi1hJ"
+            href="https://drive.google.com/uc?export=download&id=1Zgdvu51SOXNTGc5SwK2-0X4A4kwZUwR_"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 border border-border px-6 py-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors duration-300 hover:border-primary hover:text-primary"
