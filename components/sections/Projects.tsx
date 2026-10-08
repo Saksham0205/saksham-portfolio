@@ -63,7 +63,7 @@ export function Projects({ addToRefs }: ProjectsProps) {
           <h2 className="font-display text-3xl font-extrabold uppercase tracking-[-0.03em] md:text-5xl">
             Things I shipped
           </h2>
-          <span className="label">03 / Projects</span>
+          <span className="label">02 / Projects</span>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

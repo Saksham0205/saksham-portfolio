@@ -66,7 +66,7 @@ export function Certifications({ addToRefs }: CertificationsProps) {
           <h2 className="font-display text-3xl font-extrabold uppercase tracking-[-0.03em] md:text-5xl">
             Certifications
           </h2>
-          <span className="label">06 / Credentials</span>
+          <span className="label">05 / Credentials</span>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

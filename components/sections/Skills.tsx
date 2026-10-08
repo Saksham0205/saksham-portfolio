@@ -37,7 +37,7 @@ export function Skills({ addToRefs }: SkillsProps) {
           <h2 className="font-display text-3xl font-extrabold uppercase tracking-[-0.03em] md:text-5xl">
             Tools of the trade
           </h2>
-          <span className="label">04 / Stack</span>
+          <span className="label">03 / Stack</span>
         </div>
 
         {/* flex-wrap instead of a fixed grid: uneven last row just hugs left, no empty cell */}

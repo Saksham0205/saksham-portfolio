@@ -35,7 +35,7 @@ export function Achievements({ addToRefs }: AchievementsProps) {
           <h2 className="font-display text-3xl font-extrabold uppercase tracking-[-0.03em] md:text-5xl">
             Recognition & Awards
           </h2>
-          <span className="label">05 / Awards</span>
+          <span className="label">04 / Awards</span>
         </div>
 
         <div className="divide-y divide-border border-y border-border">

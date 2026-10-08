@@ -14,7 +14,7 @@ export function Contact({ addToRefs }: ContactProps) {
           <h2 className="font-display text-3xl font-extrabold uppercase tracking-[-0.03em] md:text-5xl">
             Get in touch
           </h2>
-          <span className="label">08 / Contact</span>
+          <span className="label">07 / Contact</span>
         </div>
 
         <Reveal>

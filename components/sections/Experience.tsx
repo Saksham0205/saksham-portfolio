@@ -67,7 +67,7 @@ export function Experience({ addToRefs }: ExperienceProps) {
           <h2 className="font-display text-3xl font-extrabold uppercase tracking-[-0.03em] md:text-5xl">
             Where I've built
           </h2>
-          <span className="label">02 / Experience</span>
+          <span className="label">01 / Experience</span>
         </div>
 
         <div className="space-y-24">

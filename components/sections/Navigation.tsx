@@ -4,7 +4,6 @@ import { useState } from "react";
 import { X, Menu } from "lucide-react";
 
 const NAV = [
-  { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Work", href: "#projects" },
   { label: "Stack", href: "#skills" },

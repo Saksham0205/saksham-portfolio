@@ -29,7 +29,7 @@ export function Leadership({ addToRefs }: LeadershipProps) {
           <h2 className="font-display text-3xl font-extrabold uppercase tracking-[-0.03em] md:text-5xl">
             Community & Leadership
           </h2>
-          <span className="label">07 / Leadership</span>
+          <span className="label">06 / Leadership</span>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">

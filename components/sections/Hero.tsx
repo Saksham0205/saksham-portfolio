@@ -3,6 +3,7 @@
 import { RefObject } from "react";
 import { Github, Linkedin, Mail, FileText, ArrowRight } from "lucide-react";
 import { AnimatedHeading, Reveal } from "@/components/Reveal";
+import { TechStackOrbit } from "@/components/three/TechStackOrbit";
 
 interface HeroProps {
   heroRef?: RefObject<HTMLDivElement | null>;
@@ -24,26 +25,16 @@ export function Hero({ heroRef }: HeroProps) {
 
         {/* Tagline & Key Highlights Grid */}
         <div className="mt-12 grid gap-10 md:grid-cols-12">
-          <Reveal delay={0.5} className="md:col-span-6">
-            <p className="text-balance text-lg leading-relaxed text-foreground/85 md:text-xl">
-              I build conversational AI systems, voice agents, campaign engines, and full-stack products. SDE Intern at Spyne and Founder of Ajnabee.
+          <Reveal delay={0.5} className="md:col-span-6 space-y-4">
+            <p className="text-base leading-relaxed text-foreground/75">
+              Software Engineer at OmniDimension building conversational AI & voice agents. Previously at Spyne as an SDE Intern, where I architected AI campaign engines and shipped 5+ production products and 10+ dashboards.
+            </p>
+            <p className="text-base leading-relaxed text-foreground/75">
+              As the founder of Ajnabee, I built a women-first salon booking ecosystem targeting 3.3M+ users across Delhi-NCR, leading a 10-member engineering and operations team.
             </p>
           </Reveal>
-          <Reveal delay={0.62} className="md:col-span-4 md:col-start-9">
-            <dl className="space-y-4 font-mono text-xs">
-              <div className="flex justify-between border-b border-border pb-2">
-                <dt className="text-muted-foreground">Role</dt>
-                <dd className="text-right font-medium">Software Engineer</dd>
-              </div>
-              <div className="flex justify-between border-b border-border pb-2">
-                <dt className="text-muted-foreground">Focus</dt>
-                <dd className="text-right font-medium">Voice AI · LLM workflows</dd>
-              </div>
-              <div className="flex justify-between border-b border-border pb-2">
-                <dt className="text-muted-foreground">Shipped</dt>
-                <dd className="text-right font-medium">5+ products · 10+ dashboards</dd>
-              </div>
-            </dl>
+          <Reveal delay={0.62} className="md:col-span-5 md:col-start-8">
+            <TechStackOrbit />
           </Reveal>
         </div>
 
