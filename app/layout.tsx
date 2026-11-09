@@ -1,49 +1,26 @@
-import type React from "react"
-import type { Metadata, Viewport } from "next"
-import { Inter_Tight, Space_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
+import type React from "react";
+import type { Metadata, Viewport } from "next";
+import { Fraunces, Nunito, Space_Mono } from "next/font/google";
+import "./globals.css";
 
-const interTight = Inter_Tight({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-inter-tight",
-  display: "swap",
-})
+const fraunces = Fraunces({ subsets: ["latin"], weight: ["600", "800", "900"], variable: "--font-fraunces", display: "swap" });
+const nunito = Nunito({ subsets: ["latin"], weight: ["400", "600", "700", "800"], variable: "--font-nunito", display: "swap" });
+const spaceMono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-space-mono", display: "swap" });
 
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-space-mono",
-  display: "swap",
-})
-
-export const viewport: Viewport = {
-  themeColor: "#111214",
-  width: "device-width",
-  initialScale: 1,
-}
+export const viewport: Viewport = { themeColor: "#faf5e8", width: "device-width", initialScale: 1 };
 
 export const metadata: Metadata = {
   title: "Saksham Chauhan — Software Engineer & Founder",
-  description:
-    "Software Engineer at OmniDimension, ex-Spyne, Founder of Ajnabee. Building voice AI agents, LLM workflows, and shipped full-stack products.",
-  icons: {
-    icon: "/favicon.ico",
-  },
-}
+  description: "Software Engineer at OmniDimension, ex-Spyne, Founder of Ajnabee. Building conversational AI, voice agents, and full-stack products.",
+  icons: { icon: "/favicon.svg", apple: "/apple-icon.png" },
+};
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${interTight.variable} ${spaceMono.variable} font-sans antialiased grain-overlay`}>
+    <html lang="en">
+      <body className={`${fraunces.variable} ${nunito.variable} ${spaceMono.variable} font-sans antialiased grain-overlay`}>
         {children}
-        <Analytics />
       </body>
     </html>
-  )
+  );
 }

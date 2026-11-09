@@ -1,4 +1,11 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" rx="6" fill="#8B5CF6"/>
-  <text x="16" y="23" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">S</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="18" fill="#f4b94f"/>
+  <path d="M13 29c0-15 8-23 20-23s20 8 20 23v9H13z" fill="#47302a"/>
+  <path d="M15 31c0-11 7-19 18-19s18 8 18 19v11c0 12-8 19-18 19s-18-7-18-19z" fill="#f3c39c"/>
+  <path d="M13 31c0-14 7-24 20-24 11 0 19 8 20 22-5-1-10-4-14-9-5 6-14 10-26 11z" fill="#47302a"/>
+  <ellipse cx="25" cy="36" rx="2" ry="2.8" fill="#33231f"/>
+  <ellipse cx="40" cy="36" rx="2" ry="2.8" fill="#33231f"/>
+  <path d="M27 47c3 3 8 3 11 0" fill="none" stroke="#a54e43" stroke-linecap="round" stroke-width="2.5"/>
+  <circle cx="18" cy="43" r="3" fill="#e88d7b" opacity=".55"/>
+  <circle cx="47" cy="43" r="3" fill="#e88d7b" opacity=".55"/>
 </svg>

@@ -4,13 +4,13 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --radius-sm: 2px;
-  --radius-md: 3px;
-  --radius-lg: 4px;
-  --radius-xl: 6px;
-  --radius-2xl: 8px;
-  --font-display: var(--font-inter-tight), "Inter Tight", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-inter-tight), "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-space-mono), "Space Mono", ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -37,29 +37,30 @@
 }
 
 :root {
-  --radius: 4px;
-  --background: oklch(0.145 0.005 260);
-  --foreground: oklch(0.97 0.005 250);
-  --surface: oklch(0.196 0.008 260);
-  --surface-2: oklch(0.245 0.01 260);
-  --card: oklch(0.196 0.008 260);
-  --card-foreground: oklch(0.97 0.005 250);
-  --popover: oklch(0.196 0.008 260);
-  --popover-foreground: oklch(0.97 0.005 250);
-  --primary: oklch(0.88 0.21 128);
-  --primary-foreground: oklch(0.16 0.01 260);
-  --secondary: oklch(0.245 0.01 260);
-  --secondary-foreground: oklch(0.97 0.005 250);
-  --muted: oklch(0.245 0.01 260);
-  --muted-foreground: oklch(0.66 0.012 258);
-  --accent: oklch(0.88 0.21 128);
-  --accent-foreground: oklch(0.16 0.01 260);
-  --bloom: oklch(0.62 0.2 295);
+  --radius: 18px;
+  --background: oklch(0.975 0.018 85);
+  --foreground: oklch(0.22 0.012 60);
+  --surface: oklch(0.995 0.008 85);
+  --surface-2: oklch(0.94 0.03 85);
+  --card: oklch(0.995 0.008 85);
+  --card-foreground: oklch(0.22 0.012 60);
+  --popover: oklch(0.995 0.008 85);
+  --popover-foreground: oklch(0.22 0.012 60);
+  --primary: oklch(0.64 0.16 40);
+  --primary-foreground: oklch(0.99 0.01 85);
+  --secondary: oklch(0.93 0.09 95);
+  --secondary-foreground: oklch(0.22 0.012 60);
+  --muted: oklch(0.94 0.02 85);
+  --muted-foreground: oklch(0.5 0.02 60);
+  --accent: oklch(0.86 0.08 160);
+  --accent-foreground: oklch(0.22 0.012 60);
+  --bloom: oklch(0.82 0.1 340);
   --destructive: oklch(0.62 0.22 25);
-  --destructive-foreground: oklch(0.97 0.005 250);
-  --border: oklch(0.32 0.01 260);
-  --input: oklch(0.32 0.01 260);
-  --ring: oklch(0.88 0.21 128);
+  --destructive-foreground: oklch(0.99 0.01 85);
+  --border: oklch(0.22 0.012 60);
+  --input: oklch(0.85 0.02 85);
+  --ring: oklch(0.64 0.16 40);
+  --shadow-pop: 5px 5px 0 0 var(--foreground);
 }
 
 .dark {
@@ -104,6 +105,7 @@
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
@@ -114,6 +116,7 @@
     opacity: 0;
     transform: translateY(1.1em) rotate(3deg);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) rotate(0deg);
@@ -121,20 +124,24 @@
 }
 
 @keyframes bar-pulse {
+
   0%,
   100% {
     transform: scaleY(0.3);
   }
+
   50% {
     transform: scaleY(1);
   }
 }
 
 @keyframes tech-float {
+
   0%,
   100% {
     translate: 0 0;
   }
+
   50% {
     translate: 0 -9px;
   }
@@ -165,13 +172,16 @@
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: oklch(0.145 0.005 260);
 }
+
 ::-webkit-scrollbar-thumb {
   background: oklch(0.32 0.01 260);
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: oklch(0.88 0.21 128 / 0.4);
 }
@@ -180,8 +190,19 @@
   html {
     scroll-behavior: auto;
   }
+
   .animate-marquee-x,
   .tech-float {
     animation: none;
   }
 }
+@utility pop {
+  border: 2px solid var(--foreground);
+  box-shadow: var(--shadow-pop);
+  transition: transform .25s ease, box-shadow .25s ease;
+  &:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 0 var(--foreground); }
+}
+@keyframes eq { 0%,100% { transform: scaleY(.3) } 50% { transform: scaleY(1) } }
+.eq-bar { transform-origin: bottom; animation: eq .9s ease-in-out infinite; }
+@keyframes wobble { 0%,100% { transform: rotate(-3deg) } 50% { transform: rotate(3deg) } }
+.wobble { animation: wobble 3s ease-in-out infinite; }
