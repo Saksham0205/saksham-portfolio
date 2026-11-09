@@ -2,7 +2,6 @@ import { useEffect, useState, type ReactNode } from "react";
 import { motion } from "motion/react";
 import { ArrowUpRight, Github, Linkedin, Mail, Phone, FileText, Copy, Check } from "lucide-react";
 import { achievements, certifications, experience, leadership, links, projects, skills } from "./data";
-import { MusicToggle } from "./MusicToggle";
 
 function Fade({ children, delay = 0, className = "" }: { children: ReactNode; delay?: number; className?: string }) {
   return (
@@ -50,8 +49,6 @@ export function Portfolio() {
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-secondary">
-      <MusicToggle />
-
       <header className="sticky top-0 z-40 border-b-2 border-foreground bg-background/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
           <a href="#top" className="font-display text-2xl font-black">Saksham<span className="text-primary">.</span></a>
