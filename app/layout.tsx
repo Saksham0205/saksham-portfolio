@@ -1,11 +1,7 @@
 import type React from "react";
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Nunito, Space_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
-
-const fraunces = Fraunces({ subsets: ["latin"], weight: ["600", "800", "900"], variable: "--font-fraunces", display: "swap" });
-const nunito = Nunito({ subsets: ["latin"], weight: ["400", "600", "700", "800"], variable: "--font-nunito", display: "swap" });
-const spaceMono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-space-mono", display: "swap" });
 
 export const viewport: Viewport = { themeColor: "#faf5e8", width: "device-width", initialScale: 1 };
 
@@ -18,7 +14,22 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${fraunces.variable} ${nunito.variable} ${spaceMono.variable} font-sans antialiased grain-overlay`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800;900&family=Nunito:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <Script id="microsoft-clarity" strategy="beforeInteractive">
+          {`(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "zatdbu3bq8");`}
+        </Script>
+      </head>
+      <body className="font-sans antialiased grain-overlay">
         {children}
       </body>
     </html>

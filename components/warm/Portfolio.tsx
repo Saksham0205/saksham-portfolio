@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { ArrowUpRight, Github, Linkedin, Mail, Phone, FileText, Copy, Check } from "lucide-react";
 import { achievements, certifications, experience, leadership, links, projects, skills } from "./data";
 import { MusicToggle } from "./MusicToggle";
@@ -29,28 +29,6 @@ function Heading({ kicker, children }: { kicker: string; children: ReactNode }) 
   );
 }
 
-function Loader() {
-  const [show, setShow] = useState(true);
-  useEffect(() => {
-    const t = setTimeout(() => setShow(false), 1800);
-    return () => clearTimeout(t);
-  }, []);
-  return (
-    <AnimatePresence>
-      {show && (
-        <motion.div
-          exit={{ y: "-100%" }}
-          transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-4 rounded-b-[32px] bg-secondary"
-        >
-          <span className="wobble text-7xl" aria-hidden>👋</span>
-          <p className="font-display text-5xl font-black tracking-tight md:text-7xl">Hi there!</p>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-}
-
 const nav = [
   ["Journey", "#journey"],
   ["Work", "#work"],
@@ -72,7 +50,6 @@ export function Portfolio() {
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-secondary">
-      <Loader />
       <MusicToggle />
 
       <header className="sticky top-0 z-40 border-b-2 border-foreground bg-background/90 backdrop-blur">

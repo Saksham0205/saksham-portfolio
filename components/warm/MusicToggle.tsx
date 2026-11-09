@@ -10,7 +10,7 @@ const CHORDS = [
 const MELODY = [659.25, 587.33, 523.25, 493.88, 523.25, 587.33, 392.0, 440.0];
 
 export function MusicToggle() {
-  const [on, setOn] = useState(false);
+  const [on, setOn] = useState(true);
   const ctxRef = useRef<AudioContext | null>(null);
   const timer = useRef<number | null>(null);
 
@@ -22,6 +22,7 @@ export function MusicToggle() {
   };
 
   const start = () => {
+    if (ctxRef.current) return;
     const ctx = new AudioContext();
     ctxRef.current = ctx;
     const master = ctx.createGain();
@@ -52,11 +53,25 @@ export function MusicToggle() {
       [0, 0.6, 1.2, 1.8].forEach((o, i) => tone(MELODY[(bar * 2 + i) % 8]!, t + o, 0.5, 0.1, "sine"));
       bar++;
     };
-    playBar();
-    timer.current = window.setInterval(playBar, 2400);
+    // Start automatically when allowed; if autoplay is blocked, retry after the first user gesture.
+    void ctx.resume().then(() => {
+      if (ctxRef.current !== ctx || ctx.state !== "running" || timer.current !== null) return;
+      playBar();
+      timer.current = window.setInterval(playBar, 2400);
+    }).catch(() => {});
   };
 
-  useEffect(() => stop, []);
+  useEffect(() => {
+    start();
+    const resumeOnGesture = () => start();
+    window.addEventListener("pointerdown", resumeOnGesture);
+    window.addEventListener("keydown", resumeOnGesture);
+    return () => {
+      window.removeEventListener("pointerdown", resumeOnGesture);
+      window.removeEventListener("keydown", resumeOnGesture);
+      stop();
+    };
+  }, []);
 
   return (
     <button
