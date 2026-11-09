@@ -10,7 +10,7 @@ const CHORDS = [
 const MELODY = [659.25, 587.33, 523.25, 493.88, 523.25, 587.33, 392.0, 440.0];
 
 export function MusicToggle() {
-  const [on, setOn] = useState(true);
+  const [on, setOn] = useState(false);
   const ctxRef = useRef<AudioContext | null>(null);
   const timer = useRef<number | null>(null);
 
@@ -61,24 +61,18 @@ export function MusicToggle() {
     }).catch(() => {});
   };
 
-  useEffect(() => {
-    start();
-    const resumeOnGesture = () => start();
-    window.addEventListener("pointerdown", resumeOnGesture);
-    window.addEventListener("keydown", resumeOnGesture);
-    return () => {
-      window.removeEventListener("pointerdown", resumeOnGesture);
-      window.removeEventListener("keydown", resumeOnGesture);
-      stop();
-    };
-  }, []);
+  useEffect(() => () => stop(), []);
 
   return (
     <button
       onClick={() => {
-        if (on) stop();
-        else start();
-        setOn(!on);
+        if (on) {
+          stop();
+          setOn(false);
+        } else {
+          start();
+          setOn(true);
+        }
       }}
       aria-label={on ? "Turn music off" : "Turn music on"}
       className="pop fixed bottom-5 right-5 z-50 flex items-center gap-3 rounded-full bg-secondary px-4 py-3 font-sans text-sm font-bold"
