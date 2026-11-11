@@ -154,7 +154,7 @@
 }
 
 .animate-marquee-x {
-  animation: marquee-x 32s linear infinite;
+  animation: marquee-x 60s linear infinite;
 }
 
 .grain-overlay::after {

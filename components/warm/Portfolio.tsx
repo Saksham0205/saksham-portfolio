@@ -105,9 +105,11 @@ export function Portfolio() {
       {/* MARQUEE */}
       <div className="overflow-hidden border-y-2 border-foreground bg-foreground py-4 text-background">
         <div className="animate-marquee-x flex w-max gap-10 whitespace-nowrap font-display text-2xl font-black">
-          {Array.from({ length: 2 }).flatMap((_, k) =>
-            ["Voice Agents", "✦", "LLM Workflows", "✦", "Flutter", "✦", "Next.js", "✦", "Founder", "✦", "Shipping fast", "✦"].map((w, i) => <span key={`${k}${i}`}>{w}</span>),
-          )}
+          {[...skills.flatMap((group) => group.items), ...skills.flatMap((group) => group.items)].map((skill, i) => (
+            <span key={`${skill}-${i}`} className="flex items-center gap-10">
+              {skill}<span aria-hidden="true">✦</span>
+            </span>
+          ))}
         </div>
       </div>
 
