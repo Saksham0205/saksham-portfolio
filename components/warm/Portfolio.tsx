@@ -29,7 +29,7 @@ function Heading({ kicker, children }: { kicker: string; children: ReactNode }) 
 }
 
 const nav = [
-  ["Journey", "#journey"],
+  ["Experience", "#experience"],
   ["Work", "#work"],
   ["Stack", "#stack"],
   ["Wins", "#wins"],
@@ -70,14 +70,14 @@ export function Portfolio() {
               I build AI that <span className="relative inline-block text-primary">talks back<svg viewBox="0 0 200 12" className="absolute -bottom-2 left-0 w-full" aria-hidden><path d="M2 8 Q50 0 100 7 T198 5" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" /></svg></span>, and products people use.
             </h1>
           </Fade>
-          <Fade delay={0.15}>
+          {/* <Fade delay={0.15}>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
               Most recently a Software Engineer at OmniDimension (till Sep 2026), building conversational AI & voice agents. Before that at Spyne as an SDE Intern, where I architected AI campaign engines and shipped 5+ production products and 10+ dashboards.
             </p>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">
               As the founder of Ajnabee, I built a women-first salon booking ecosystem targeting 3.3M+ users across Delhi-NCR, leading a 10-member engineering and operations team.
             </p>
-          </Fade>
+          </Fade> */}
           <Fade delay={0.3} className="mt-10 flex flex-wrap gap-3">
             <a href="#work" className="pop rounded-full bg-foreground px-6 py-3 font-bold text-background">See my work →</a>
             <a href="#contact" className="pop rounded-full bg-surface px-6 py-3 font-bold">Say hello</a>
@@ -86,7 +86,6 @@ export function Portfolio() {
         <Fade delay={0.2} className="md:col-span-5">
           <div className="relative mx-auto max-w-sm">
             <div className="pop rotate-[3deg] rounded-3xl bg-accent p-8">
-              <p className="font-display text-2xl font-black">Open to new roles ✦</p>
               <p className="mt-2 font-bold">Ex-OmniDimension · Ex-Spyne · Founder of Ajnabee</p>
               <div className="mt-6 grid grid-cols-2 gap-3">
                 {[["5+", "products shipped"], ["10+", "dashboards"], ["3.3M+", "users targeted"], ["100+", "devs mentored"]].map(([v, l]) => (
@@ -113,9 +112,9 @@ export function Portfolio() {
         </div>
       </div>
 
-      {/* JOURNEY */}
-      <section id="journey" className="mx-auto max-w-6xl px-5 py-28">
-        <Heading kicker="My journey">Where I've built</Heading>
+      {/* EXPERIENCE */}
+      <section id="experience" className="mx-auto max-w-6xl px-5 py-28">
+        <Heading kicker="Experience">Where I've built</Heading>
         <div className="relative space-y-10 border-l-2 border-dashed border-foreground pl-8 md:pl-12">
           {experience.map((e, i) => (
             <Fade key={e.company} delay={i * 0.05}>
