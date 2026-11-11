@@ -25,7 +25,7 @@ const skillGroups = [
   },
   {
     group: "Cloud & DevSecOps",
-    items: ["Google Cloud Platform (GCP)", "AWS", "CI/CD Pipelines", "Git & GitHub Actions", "Postman & API Specs"],
+    items: ["Google Cloud Platform (GCP)", "AWS", "CI/CD Pipelines", "Git & GitHub Actions"],
   },
 ];
 

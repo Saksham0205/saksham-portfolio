@@ -14,7 +14,7 @@ const experienceData = [
     role: "Software Engineer",
     period: "May 2026 — Sep 2026",
     year: "2026",
-    place: "Remote · US",
+    place: "Remote · California, US",
     points: [
       "Built conversational AI workflows from requirements to production, integrating LLM APIs, prompt logic and REST API integrations.",
       "Evaluated TTS and STT providers based on latency, transcription accuracy and voice quality for production voice agents.",

@@ -9,7 +9,7 @@ export const links = {
 export const experience = [
   {
     company: "OmniDimension", url: "https://omnidim.io", role: "Software Engineer",
-    period: "May 2026 — Sep 2026", place: "Remote · US", color: "bg-accent",
+    period: "May 2026 — Sep 2026", place: "Remote · California, US", color: "bg-accent",
     points: [
       "Built conversational AI workflows from requirements to production, integrating LLM APIs, prompt logic and REST API integrations.",
       "Evaluated TTS and STT providers based on latency, transcription accuracy and voice quality for production voice agents.",
@@ -86,7 +86,7 @@ export const skills = [
   { group: "Backend & Databases", items: ["Node.js", "Nest.js", "REST APIs", "Firebase & Firestore", "MongoDB Pipelines", "Redis", "ClickHouse", "Docker"] },
   { group: "Frontend & Mobile", items: ["Flutter (Bloc / Provider)", "Next.js", "React", "Tailwind CSS", "Modern Web Architecture"] },
   { group: "AI & Voice Engineering", items: ["Conversational Voice Agents", "LLM Workflows & Tool Calling", "Prompt Engineering", "Vapi & ElevenLabs", "Evaluation & Analytics"] },
-  { group: "Cloud & DevSecOps", items: ["Google Cloud Platform (GCP)", "AWS", "CI/CD Pipelines", "Git & GitHub Actions", "Postman & API Specs"] },
+  { group: "Cloud & DevSecOps", items: ["Google Cloud Platform (GCP)", "AWS", "CI/CD Pipelines", "Git & GitHub Actions"] },
 ];
 
 export const achievements = [
